@@ -10,3 +10,7 @@ def validate_year(year):
     if not re.match(format, str(year)):
         return False
     return 1900 <= int(year) <= 2026
+
+def extract_numbers(text):
+    numbers = re.findall(r'\d+', text)
+    return [int(n) for n in numbers]
