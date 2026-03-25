@@ -137,7 +137,7 @@ class Libraryapp:
     def run(self):
         print ("\nwelcome to the library system")
 
-        while true:
+        while True:
             self.menu()
             choice = input("\nchoice (1-7)")
 
