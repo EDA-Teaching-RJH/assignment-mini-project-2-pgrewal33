@@ -71,3 +71,16 @@ class Libraryapp:
         else:
             print("sorry book is already borrowed")
         
+    def return_books(self):
+        isbn = input("enter the book isbn: ")
+        book = self.library.fiid_book(isbn)
+
+        if not book:
+            print("book not found")
+            return
+        if book.return_book():
+            self.save_books()
+            print(f"returned: {book.title}")
+        else:
+            print("this book is not borrowed")
+        
