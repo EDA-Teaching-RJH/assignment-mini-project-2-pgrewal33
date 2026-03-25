@@ -1,10 +1,10 @@
-from models.book import book
-from models.library import library
+from models.book import Book
+from models.library import Library
 from utilities.functions import validate_isbn, validate_year, clean_text
 
-class libraryapp:
+class Libraryapp:
     def __init__(self):
-        self.library =  library()
+        self.library =  Library()
         self.load_books()
 
     def load_books(self):
@@ -15,7 +15,7 @@ class libraryapp:
                     parts = line.strip().split(",")
                     if len(parts) >= 4:
                         isbn, title, author, year = parts [0], parts[1], parts[2], parts [3], parts[4]
-                        book = book(isbn, titile, author, int(year))
+                        book = book(isbn, title, author, int(year))
                         if len(parts) == 5 and parts[4] == "true":
                             book.borrow()
                         self.library.add_book(book)
@@ -52,8 +52,22 @@ class libraryapp:
             print("invalid year")
             return
         
-        book = book(isbn, title, author, year)
+        book = Book(isbn, title, author, year)
         self.library.add_book(book)
         self.save_books()
         print(f"added: {title}")
+
+    def borrow_book(self):
+        isbn = input("enter isbn of the book you want to borrow: ")
+        book = self.library.find_book(isbn)
+
+        if not book:
+            print("book not found")
+            return
+        
+        if book.borrowed():
+            self.save_books()
+            print(f" borrowed: {book.title}")
+        else:
+            print("sorry book is already borrowed")
         
