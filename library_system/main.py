@@ -123,3 +123,13 @@ class Libraryapp:
             f.write(report)
 
         print(" report saved to report.txt")
+
+    def menu(self):
+        print("library management system")
+        print("1. view all books")
+        print("2. add new book")
+        print("3. borrow book")
+        print("4. return book")
+        print("5. search books")
+        print("6. make a report")
+        print("7. exit")
