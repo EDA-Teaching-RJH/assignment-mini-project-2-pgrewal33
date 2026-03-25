@@ -18,4 +18,9 @@ class book:
             self.is_borrowed = False
             return True
         return False
-        
+    
+    def display(self):
+        status = "borrowed" if self.is_borrowed else "available"
+        return f"{self.isbn} - {self.title} - {self.author} - {self.year} - {status}"
+    
+    
