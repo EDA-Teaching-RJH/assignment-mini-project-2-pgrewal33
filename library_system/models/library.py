@@ -23,3 +23,7 @@ class library:
             if term_lower in book.title.lower() or term_lower in book.author.lower():
                 results.append(book)
         return results
+
+    def get_borrow_books(self):
+        return [book for book in self.books if book.is_borrowed]
+    
