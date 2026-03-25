@@ -7,6 +7,12 @@ class library:
         for existing in self.books:
             if existing.isbn == book.isbn:
                 return False
-        self.books.append(books)
+        self.books.append(book)
         return True
+    
+    def find_book(self, isbn):
+        for book in self.books:
+            if book.isbn == isbn:
+                return book
+        return None
 
