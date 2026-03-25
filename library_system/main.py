@@ -28,4 +28,32 @@ class libraryapp:
             for book in self.library.books:
                 f.write(book.to_line()) + "\n"
             print(f"saved {len(self.library.books)} books")
-            
+    
+    def add_book(self):
+
+        isbn = input(isbn: )
+        if not validate_isbn(isbn):
+            print ("invalid isbn!")
+            return
+        if self.library.find_book(isbn):
+            print ("book already exists")
+            return
+        
+        title = input("title: ")
+        author = input("author: ")
+
+        try:
+            year = int(input("year: "))
+            if not validate_year(year):
+                print("invalid year! ")
+                return
+        
+        except ValueError:
+            print("invalid year")
+            return
+        
+        book = book(isbn, title, author, year)
+        self.library.add_book(book)
+        self.save_books()
+        print(f"added: {title}")
+        
