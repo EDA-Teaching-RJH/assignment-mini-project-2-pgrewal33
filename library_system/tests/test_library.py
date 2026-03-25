@@ -14,7 +14,16 @@ class TestRegex(unittest.TestCase):
         self.assertTrue(validate_isbn("987-123-456"))
 
     def test_invalid_isbn(self):
-        self.assertTrue(validate_isbn("123456789"))
-        self.assertTrue(validate_isbn("12-34-56-78"))
-        self.assertTrue(validate_isbn("qwe-rty-uio"))
-        
+        self.assertFalse(validate_isbn("123456789"))
+        self.assertFalse(validate_isbn("12-34-56-78"))
+        self.assertFalse(validate_isbn("qwe-rty-uio"))
+
+    def test_valid_year(self):
+        self.assertTrue(validate_year(2024))
+        self.assertTrue(validate_year(2000))
+        self.assertTrue(validate_year(1900))
+    
+    def test_invalid_year():
+        self.assertFalse(validate_year(1899))
+        self.assertFalse(validate_year(2027))
+        self.assertFalse(validate_year(99))
