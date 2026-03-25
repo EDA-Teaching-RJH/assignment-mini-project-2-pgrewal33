@@ -27,3 +27,6 @@ class library:
     def get_borrow_books(self):
         return [book for book in self.books if book.is_borrowed]
     
+    def get_available_books(self):
+        return [book for book in self.books if not book.is_borrowed]
+    
