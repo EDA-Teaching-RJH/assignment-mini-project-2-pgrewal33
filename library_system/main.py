@@ -133,3 +133,30 @@ class Libraryapp:
         print("5. search books")
         print("6. make a report")
         print("7. exit")
+
+    def run(self):
+        print ("\nwelcome to the library system")
+
+        while true:
+            self.menu()
+            choice = input("\nchoice (1-7)")
+
+            if choice == '1':
+                print(self.library.display_all())
+            elif choice == '2':
+                self.add_book()
+            elif choice == '3':
+                self.borrow_book()
+            elif choice == '4':
+                self.return_books()
+            elif choice == '5':
+                self.search_books()
+            elif choice == '6':
+                self.report()
+            elif choice == '7':
+                print("\nsaving and exiting")
+                self.save_books()
+                print("goodbye!")
+                break
+            else:
+                print("invalid input")
