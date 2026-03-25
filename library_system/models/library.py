@@ -16,3 +16,10 @@ class library:
                 return book
         return None
 
+    def search(self,term):
+        term_lower = term.lower()
+        results = []
+        for book in self.books:
+            if term_lower in book.title.lower() or term_lower in book.author.lower():
+                results.append(book)
+        return results
