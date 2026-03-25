@@ -22,3 +22,10 @@ class libraryapp:
             print(f"loaded {len(self.library.books)} books ")
         except FileNotFoundError:
             print("no book found")
+    
+    def save_books(self):
+        with open("books.txt", "w") as f:
+            for book in self.library.books:
+                f.write(book.to_line()) + "\n"
+            print(f"saved {len(self.library.books)} books")
+            
