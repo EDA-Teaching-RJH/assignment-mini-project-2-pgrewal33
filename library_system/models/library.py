@@ -30,3 +30,21 @@ class library:
     def get_available_books(self):
         return [book for book in self.books if not book.is_borrowed]
     
+    def display_all(self):
+        if not self.books:
+            return "no books in libary"
+        
+        result = "\n" + "="*10 + "\n"
+        result += "library catalog\n"
+        result += "="*10 + "\n"
+
+        for book in self.books:
+            result += book.display() + "\n"
+
+        result += "="*10 + "\n"
+        result += f"total books: {len(self.books)}\n"
+        result += f"available: {len(self.get_available_books())}\n"
+        result += f"borrowed: {len(self.get_borrow_books())}\n"
+
+        return result
+    
