@@ -96,3 +96,30 @@ class Libraryapp:
         else:
             print("no books found")
             
+    def report(self):
+
+        report = "library report\n"
+        report += f"generated: {__import__('datetime').datetime.now()}\n\n"
+
+        report += "borrowed books: \n"
+        borrowed = self.library.get_borrowed_books()
+        if borrowed:
+            for book in borrowed:
+                report += f" - {book.title} by {book.author}\n"
+        else:
+            report += "  none\n"
+        
+        report += "\navailable books: \n"
+        avaialble = self.library.get_available_books()
+        if avaialble:
+            for book in avaialble:
+                report += f" - {book.title} by {book.author} \n"
+        else:
+            report += " none\n"
+        
+        report += f"\n total books: {len(self.library.books)}\n"
+
+        with open("report.txt", "w") as f:
+            f.write(report)
+
+        print(" report saved to report.txt")
