@@ -27,3 +27,34 @@ class TestRegex(unittest.TestCase):
         self.assertFalse(validate_year(1899))
         self.assertFalse(validate_year(2027))
         self.assertFalse(validate_year(99))
+
+class TestBook(unittest.TestCase):
+    def test_create_books(self):
+        book = Book("123-456-789", "TEST BOOK", "TEST AUTHOR", 2024)
+        self.assertEqual(book.title, "TEST BOOK")
+        self.assertEqual(book.author, "TEST AUTHOR")
+        self.assertEqual(book.is_borrowed)
+
+    def test_borrow_book(self):
+        book = Book("123-456-789", "TEST", "AUTHOR", 2024)
+        result = book.borrow()
+        self.assertTrue(result)
+        self.assertTrue(book.is_borrowed)
+
+    def test_borrow_book(self):
+        book = Book("123-456-789", "TEST", "AUTHOR", 2024)
+        book.borrow()
+        result = book.borrow()
+        self.assertFalse(result)
+    
+    def test_return_book(self):
+        book = Book("123-456-789", "TEST", "AUTHOR", 2024)
+        book.borrow()
+        result = book.return_book()
+        self.assertTrue(result)
+        self.assertFalse(book.is_borrowed)
+    
+    def test_returned_unborrowed_book(self):
+        book = Book("123-456-789", "TEST", "AUTHOR", 2024)
+        result = book.return_book()
+        self.assertFalse(result)
