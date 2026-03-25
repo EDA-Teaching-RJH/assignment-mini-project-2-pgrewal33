@@ -23,7 +23,7 @@ class TestRegex(unittest.TestCase):
         self.assertTrue(validate_year(2000))
         self.assertTrue(validate_year(1900))
     
-    def test_invalid_year():
+    def test_invalid_year(self):
         self.assertFalse(validate_year(1899))
         self.assertFalse(validate_year(2027))
         self.assertFalse(validate_year(99))
