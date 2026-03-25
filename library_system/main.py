@@ -84,3 +84,15 @@ class Libraryapp:
         else:
             print("this book is not borrowed")
         
+    def search_books(self):
+
+        term = input("enter search term:")
+        results = self.library.search(term)
+
+        if results:
+            print(f"\n found {len(results)} books:")
+            for book in results:
+                print(f" {book.display()}")
+        else:
+            print("no books found")
+            
