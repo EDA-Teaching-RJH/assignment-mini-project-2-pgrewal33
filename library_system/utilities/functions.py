@@ -14,3 +14,6 @@ def validate_year(year):
 def extract_numbers(text):
     numbers = re.findall(r'\d+', text)
     return [int(n) for n in numbers]
+
+def clean_text(text):
+    return re.sub(r'\s+', ' ', text).strip()
