@@ -160,3 +160,7 @@ class Libraryapp:
                 break
             else:
                 print("invalid input")
+
+if __name__ == "__main__":
+    app = Libraryapp()
+    app.run()
