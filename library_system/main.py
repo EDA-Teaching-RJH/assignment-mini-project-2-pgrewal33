@@ -31,7 +31,7 @@ class Libraryapp:
     
     def add_book(self):
 
-        isbn = input(isbn: )
+        isbn = input("isbn: ")
         if not validate_isbn(isbn):
             print ("invalid isbn!")
             return
