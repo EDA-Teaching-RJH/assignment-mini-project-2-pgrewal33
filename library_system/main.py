@@ -65,7 +65,7 @@ class Libraryapp:
             print("book not found")
             return
         
-        if book.borrowed():
+        if book.borrow():
             self.save_books()
             print(f" borrowed: {book.title}")
         else:
@@ -73,7 +73,7 @@ class Libraryapp:
         
     def return_books(self):
         isbn = input("enter the book isbn: ")
-        book = self.library.fiid_book(isbn)
+        book = self.library.find_book(isbn)
 
         if not book:
             print("book not found")
@@ -102,7 +102,7 @@ class Libraryapp:
         report += f"generated: {__import__('datetime').datetime.now()}\n\n"
 
         report += "borrowed books: \n"
-        borrowed = self.library.get_borrowed_books()
+        borrowed = self.library.get_borrow_books()
         if borrowed:
             for book in borrowed:
                 report += f" - {book.title} by {book.author}\n"
