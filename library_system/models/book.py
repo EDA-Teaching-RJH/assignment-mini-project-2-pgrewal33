@@ -23,4 +23,5 @@ class Book:
         status = "borrowed" if self.is_borrowed else "available"
         return f"{self.isbn} - {self.title} - {self.author} - {self.year} - {status}"
     
-    
+    def to_line(self):
+        return f"{self.isbn}, {self.title}, {self.author}, {self.year}, {self.is_borrowed}"
