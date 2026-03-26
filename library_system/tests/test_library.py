@@ -109,11 +109,8 @@ class TestLibrary(unittest.TestCase):
         self.assertEqual(borrowed[0].title, "python programming")
 
     def test_available_books(self):
-        print(f"\nBefore borrow - book1.is_borrowed: {self.book1.is_borrowed}")
-        self.book1.borrow
-        print(f"After borrow - book1.is_borrowed: {self.book1.is_borrowed}")
+        self.book1.borrow()
         available = self.library.get_available_books()
-        print(f"Number of available books: {len(available)}")
         self.assertEqual(len(available), 1)
         self.assertEqual(available[0].title, "java basics")
 
