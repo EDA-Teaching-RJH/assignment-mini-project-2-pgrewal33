@@ -1,1 +1,2 @@
-978-014-118, 1984, George Orwell, 1949, False
+978-014-118,  1984,  George Orwell, 1949, False
+978-006-112, To Kill a Mockingbird, Harper Lee, 1960, False

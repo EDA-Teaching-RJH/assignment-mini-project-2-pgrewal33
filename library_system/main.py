@@ -14,8 +14,8 @@ class Libraryapp:
                 for line in f:
                     parts = line.strip().split(",")
                     if len(parts) >= 4:
-                        isbn, title, author, year = parts [0], parts[1], parts[2], parts [3], parts[4]
-                        book = book(isbn, title, author, int(year))
+                        isbn, title, author, year = parts [0], parts[1], parts[2], parts [3]
+                        book = Book(isbn, title, author, int(year))
                         if len(parts) == 5 and parts[4] == "true":
                             book.borrow()
                         self.library.add_book(book)
@@ -26,7 +26,7 @@ class Libraryapp:
     def save_books(self):
         with open("books.txt", "w") as f:
             for book in self.library.books:
-                f.write(book.to_line()) + "\n"
+                f.write(book.to_line() + "\n")
             print(f"saved {len(self.library.books)} books")
     
     def add_book(self):
