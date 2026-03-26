@@ -113,3 +113,6 @@ class TestLibrary(unittest.TestCase):
         available = self.library.get_available_books()
         self.assertEqual(len(available), 1)
         self.assertEqual(available[0].title, "java basics")
+
+if __name__ == "__main__":
+    unittest.main()
