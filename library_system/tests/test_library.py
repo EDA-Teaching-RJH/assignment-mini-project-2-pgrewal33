@@ -58,3 +58,21 @@ class TestBook(unittest.TestCase):
         book = Book("123-456-789", "TEST", "AUTHOR", 2024)
         result = book.return_book()
         self.assertFalse(result)
+
+class TestLibrary(unittest.TestCase):
+    def setUp(self):
+        self.library = Library()
+        self.book1 = Book("111-111-111", "python programming", "john smith", 2024)
+        self.book2 = Book("222-222-222", "java basics", "jane doe", 2023)
+        self.library.add_book(self.book1)
+        self.library.add_book(self.book2)
+
+    def test_add_book(self):
+        new_book = Book("333-333-333", "new book", "new author", 2024)
+        result = self.library.add_book(new_book)
+        self.assertTrue(result)
+        self.assertEqual(len(self.library.books), 3)
+    
+    def test_add_duplicate_book():
+        duplicate = Book("111-111-111," "duplicate", " bob smith", 2024)
+        result = 
