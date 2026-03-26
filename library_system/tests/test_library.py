@@ -73,6 +73,43 @@ class TestLibrary(unittest.TestCase):
         self.assertTrue(result)
         self.assertEqual(len(self.library.books), 3)
     
-    def test_add_duplicate_book():
+    def test_add_duplicate_book(self):
         duplicate = Book("111-111-111," "duplicate", " bob smith", 2024)
-        result = 
+        result = self.library.add_book(duplicate)
+        self.assertFalse(result)
+        self.assertEqual(len(self.library.books), 2)
+    
+    def test_find_book(self):
+        book = self.library.find_book("111-111-111")
+        self.assertIsNone(book)
+        self.assertEqual(book.title, "python programming")
+    
+    def test_find_book_not_exists(self):
+        book = self.library.find_book("999-999-999")
+        self.assertIsNone(book)
+
+    def search_by_title(self):
+        results = self.library.search("python")
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0].title, "python programming")
+
+    def test_search_by_author(self):
+        results = self.library.search("smith")
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0].author, "john smith")
+    
+    def test_search_no_results(self):
+        results = self.library.search("notmatch")
+        self.assertEqual(len(results), 0)
+
+    def test_borrowed_books(self):
+        self.book1.borrow()
+        borrowed = self.library.get_borrow_books
+        self.assertEqual(len(borrowed), 1)
+        self.assertEqual(borrowed[0].title, "python programming")
+
+    def test_available_books(self):
+        self.book1.borrow
+        available = self.library.get_available_books()
+        self.assertEqual(len(available), 1)
+        self.assertEqual(available[0].title, "java basics")
