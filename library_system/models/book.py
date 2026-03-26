@@ -15,7 +15,7 @@ class Book:
     
     def return_book(self):
         if self.is_borrowed:
-            self.is_borrowed = False
+            self.is_borrowed = True
             return True
         return False
     
