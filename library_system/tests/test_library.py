@@ -33,7 +33,7 @@ class TestBook(unittest.TestCase):
         book = Book("123-456-789", "TEST BOOK", "TEST AUTHOR", 2024)
         self.assertEqual(book.title, "TEST BOOK")
         self.assertEqual(book.author, "TEST AUTHOR")
-        self.assertEqual(book.is_borrowed)
+        self.assertFalse(book.is_borrowed)
 
     def test_borrow_book(self):
         book = Book("123-456-789", "TEST", "AUTHOR", 2024)
@@ -74,14 +74,14 @@ class TestLibrary(unittest.TestCase):
         self.assertEqual(len(self.library.books), 3)
     
     def test_add_duplicate_book(self):
-        duplicate = Book("111-111-111," "duplicate", " bob smith", 2024)
+        duplicate = Book("111-111-111", "duplicate", " bob smith", 2024)
         result = self.library.add_book(duplicate)
         self.assertFalse(result)
         self.assertEqual(len(self.library.books), 2)
     
     def test_find_book(self):
         book = self.library.find_book("111-111-111")
-        self.assertIsNone(book)
+        self.assertIsNotNone(book)
         self.assertEqual(book.title, "python programming")
     
     def test_find_book_not_exists(self):
@@ -104,7 +104,7 @@ class TestLibrary(unittest.TestCase):
 
     def test_borrowed_books(self):
         self.book1.borrow()
-        borrowed = self.library.get_borrow_books
+        borrowed = self.library.get_borrow_books()
         self.assertEqual(len(borrowed), 1)
         self.assertEqual(borrowed[0].title, "python programming")
 
