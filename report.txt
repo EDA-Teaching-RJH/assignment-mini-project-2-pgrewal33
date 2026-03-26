@@ -1,11 +1,13 @@
 library report
-generated: 2026-03-26 23:16:00.330504
+generated: 2026-03-26 23:44:45.819336
 
 borrowed books: 
   none
 
 available books: 
- -     1984 by     George Orwell 
- -    To Kill a Mockingbird by    Harper Lee 
+ -      1984 by      George Orwell 
+ -     To Kill a Mockingbird by     Harper Lee 
+ -  The Hobbit by  J.R.R Tolkien 
+ - Dune by Frank Herbert 
 
- total books: 2
+ total books: 4
